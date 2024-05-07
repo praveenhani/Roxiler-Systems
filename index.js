@@ -3,11 +3,12 @@ const { open } = require("sqlite");
 const path = require("path");
 const sqlite3 = require("sqlite3");
 const axios = require("axios");
-const { get } = require("http");
+const cors = require('cors');
 
 const dbPath = path.join(__dirname, 'transaction.db');
 const app = express()
 app.use(express.json())
+app.use(cors());
 
 let db = null;
 
@@ -61,7 +62,7 @@ initializeDbAndServer();
 // };
 
 // fetchAndInsert();
-app.get('/search', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const { title = "", description = "", price = 0, month="03" } = req.query
     let getRes = null;

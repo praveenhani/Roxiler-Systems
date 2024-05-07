@@ -1,4 +1,4 @@
-GET http://localhost:5005/search
+GET http://localhost:5005/
 ###
 GET http://localhost:5005/combinedData
  
